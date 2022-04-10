@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Graph Visualizer</title>
+        <link rel="stylesheet" type="text/css" rel="noopener" target="_blank" href="style.css">
+    </head>
+    <body>
+        <h3>Graph&nbsp;Algorithm&nbsp;Visualizer</h3>
+        <button id="popup-btn">HOW&nbsp;TO&nbsp;USE?</button>
+        <!--HOW TO USE POP-UP-->
+            <div id="overlay-popup">
+            <h4>How to use?</h4>
+                <p id="popup-content">-To create a vertex/node, click on anywhere you want your vertex/node to be placed on the field.<br>
+                    -Make sure the field  is "unfreezed" when you click on it.<br>
+                    -<i>To draw a line, for example:</i><br>
+                    +Draw a line between <strong>node 1</strong> and <strong>node 2</strong> with <strong>weight 9</strong>, type into the input field: <strong>"1-2-9"</strong>.<br>
+                    +Remember that we only allow <strong>positive edge weight</strong>, <strong>undirected graph</strong> &amp; <strong>10 nodes</strong> only.</p>
+            <button id="popup-close-btn">CLOSE</button>
+            </div>
+        <!--HOW TO USE POP-UP-->
+        <div id="bigger-con">
+            <div id="control-bar">
+                <div id="inner-con-bar"></div>
+                <canvas tabindex='1' class="maze" width="700" height="500">if this text appears, make sure your javascript on browser is enabled</canvas>
+            </div>
+            <div id="inner-tab-bar">
+                <h4>Adjacency table</h4>
+                <h5>Maximum number of node is 10.</h5>
+                <h5>"-1" means INFINITE, as we do not allow negative cost.</h5>
+                <table></table>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="js/popup.js"></script><script type="text/javascript" src="js/vertex.js"></script>
+    <script type="text/javascript" src="js/main.js"></script><script type="text/javascript" src="js/algo.js"></script>
+</html>
+
