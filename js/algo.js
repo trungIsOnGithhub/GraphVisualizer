@@ -97,8 +97,6 @@ class myAlgo{
     }
     dijkstra(count,starting_node,end_node){
         let current_count = count;
-        // let grap = [[],[[2,5],[3,8]],[[1,5],[3,9],[4,2]],[[1,8],[2,9],[4,6]],[[2,2],[3,6]]]
-        // current_count = 6;
 
         let curr_shortest = new Array(current_count).fill(969696); //INFINITE IS 969696
         curr_shortest[starting_node] = 0;
@@ -145,3 +143,20 @@ class myAlgo{
         return curr_shortest[end_node];
     }
 }
+
+//DRAWING NODE BY CLICK ON CANVAS FIELD
+function getCursorPointOnCanvas(canv, eve){
+    const rect = canv.getBoundingClientRect();
+    let x = eve.clientX - rect.left;
+    let y = eve.clientY - rect.top;
+    return [x,y];
+}
+function vertex_display(eve){
+    let curr_point = getCursorPointOnCanvas(maze,eve);
+    let ver = new Vertex(curr_point[0],curr_point[1],count);
+    let is_drawed = ver.draw(0);
+    if(is_drawed){ store_circle.push(ver); }
+    else{ notif_out_display(notif_out,"We only allow at most 10 vertices/nodes."); }
+}
+maze.addEventListener("click", vertex_display);
+//DRAWING NODE BY CLICK ON CANVAS FIELD
