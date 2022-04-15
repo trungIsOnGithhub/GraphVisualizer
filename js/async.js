@@ -5,13 +5,13 @@ function sleep(milisecon){
         },milisecon);
     });
 }
+
 async function waiting_effect(actions){
     if(actions.length===0){
         set_txt_out(txt_out,"Empty graph!!!");
         return;
     }
     txt_out.innerHTML = "Traverse order : "+actions.toString();
-//     console.log(this.actions);
     inpu.disabled = true;
 
     let len=actions.length;

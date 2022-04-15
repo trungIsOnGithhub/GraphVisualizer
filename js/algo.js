@@ -143,20 +143,3 @@ class myAlgo{
         return curr_shortest[end_node];
     }
 }
-
-//DRAWING NODE BY CLICK ON CANVAS FIELD
-function getCursorPointOnCanvas(canv, eve){
-    const rect = canv.getBoundingClientRect();
-    let x = eve.clientX - rect.left;
-    let y = eve.clientY - rect.top;
-    return [x,y];
-}
-function vertex_display(eve){
-    let curr_point = getCursorPointOnCanvas(maze,eve);
-    let ver = new Vertex(curr_point[0],curr_point[1],count);
-    let is_drawed = ver.draw(0);
-    if(is_drawed){ store_circle.push(ver); }
-    else{ notif_out_display(notif_out,"We only allow at most 10 vertices/nodes."); }
-}
-maze.addEventListener("click", vertex_display);
-//DRAWING NODE BY CLICK ON CANVAS FIELD

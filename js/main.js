@@ -1,38 +1,4 @@
-
-// let visited = new Array(21).fill(false);
-
-// async function dfs(starting_node){
-//     // await sleep(1500);
-//     store_circle[starting_node].highlight();
-//     // await sleep(1000);
-//     store_circle[starting_node].offhighlight();
-//     // store_circle[starting_node].offhighlight();
-//     console.log(starting_node);  
-//     visited[starting_node] = true;
-//     if(graph[starting_node].length===0){console.log("LOI O ADJACENCY LIST"); return;}
-//     for(let adj of graph[starting_node]){
-//         if(visited[adj]===false){ dfs(adj);}
-//     }
-//     await sleep(1200);
-// }
-
-// async function zo_dfs(starting_node){
-    // let prom69 = new Promise(()=>{
-        // dfs(starting_node);
-    // });
-    // await prom69;
-    // console.log("vvvvvvvvvvvvvv");
-    // let len=store_circle.length;
-    // for(let i=1;i<len;++i){
-    //     store_circle[i].offhighlight();
-    // }
-    // // store_circle[2].offhighlight();
-    // recover_edges();
-// }
-
-// console.log("DOI 3 s ra cai nay")
-
-function maze_da_nang(eve){
+function multiMaker(eve){
     // console.log("Da tuong tac voi input field");
     if(eve.key==="Enter"){    
         notif_out.innerHTML = "Notification here.";
@@ -155,40 +121,5 @@ function maze_da_nang(eve){
     }
 }
 
-inpu.addEventListener('keydown', maze_da_nang);
-
-
-function recover_vertices(){ //recover all nodes that have been partially clear due to edge removal
-    let len=store_circle.length;
-    for(let i=1;i<len;++i){
-        store_circle[i].draw(i);
-        // all the node in store circles is already invalid, so we dont need to check if count>10
-    }
-}
-function recover_edges(){ //recover all edges that have  been partially clear due to edge removal
-    let len=undo_order.length;
-    for(let i=0;i<len;++i){
-        draw_line_from_to(undo_order[i][0],undo_order[i][1]);
-    }
-}
-
-
-
-function draw_line_from_to(id1,id2,color="#0099CC",lw=3){
-    // ax+by=c
-    contxt.beginPath();
-    contxt.strokeStyle = color;
-    contxt.fillStyle = color;
-    contxt.lineWidth = lw;
-    contxt.moveTo(store_circle[id1].x,store_circle[id1].y);
-    contxt.lineTo(store_circle[id2].x,store_circle[id2].y);
-    contxt.stroke();
-    contxt.closePath();
-
-    contxt.beginPath();
-    contxt.font = "20px Arial";
-    contxt.fillStyle = "#00FF66";
-    contxt.fillText(id1,store_circle[id1].x-6,store_circle[id1].y+4);
-    contxt.fillText(id2,store_circle[id2].x-6,store_circle[id2].y+4);
-    contxt.closePath();
-}
+maze.addEventListener("click", vertex_display);
+inpu.addEventListener('keydown', multiMaker);
