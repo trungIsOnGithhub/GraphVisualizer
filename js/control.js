@@ -2,7 +2,7 @@
 //CLEAR BUTTON
 let clear_btn = document.createElement("button");
 clear_btn.innerHTML = "CLEAR";
-control_bar.appendChild(clear_btn);
+
 clear_btn.addEventListener("click",()=>{
         contxt.clearRect(0,0,maze.width,maze.height);
 
@@ -25,33 +25,40 @@ clear_btn.addEventListener("click",()=>{
         notif_out.innerHTML = "Notification here.";
         inpu.value = "";
 });
-//END CLEAR BUTTON
-//Freeze button
+//CLEAR BUTTON
+
+//FREEZE BUTTON
 let freezer = document.createElement("button");
 freezer.innerHTML = "FREEZE";
 freezer.style.backgroundColor = "#0099CC";
-control_bar.appendChild(freezer);
+
 freezer.addEventListener("click", ()=>{
     maze.removeEventListener("click",vertex_display);
-    inpu.removeEventListener("keydown",maze_da_nang);
+    inpu.removeEventListener("keydown",multiMaker);
 
     unfreezer.style.backgroundColor = "#0099CC";
     freezer.style.backgroundColor = "#FFFFFF";
 });
-//Freeze button
-//UnFreeze button
+//FREEZE BUTTON
+
+//UNFREEZE BUTTON
 let unfreezer = document.createElement("button");
 unfreezer.innerHTML = "UNFREEZE";
 unfreezer.style.backgroundColor = "#FFFFFF";
-control_bar.appendChild(unfreezer);
+
 unfreezer.addEventListener("click", ()=>{
     maze.addEventListener("click",vertex_display);
-    inpu.addEventListener("keydown",maze_da_nang);
+    inpu.addEventListener("keydown",multiMaker);
 
     freezer.style.backgroundColor = "#0099CC";
     unfreezer.style.backgroundColor = "#FFFFFF";
 });
-//UnFreeze button
+//UNFREEZE BUTTON
+
+
+control_bar.appendChild(clear_btn);
+control_bar.appendChild(freezer);
+control_bar.appendChild(unfreezer);
 //ADDING BUTTON TO CONTROL BAR
 
 //ADDING DROPDOWN LIST TO CONTROL BAR

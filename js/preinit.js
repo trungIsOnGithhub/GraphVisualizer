@@ -42,7 +42,9 @@ txt_out.innerHTML = "Text output here.";
 //TEXT OUTPUT
 
 //INPUT TEXT FIELD
-inpu = document.createElement("input");inpu.style.marginTop="10px";inpu.style.marginBottom="28px";
+inpu = document.createElement("input");
+inpu.style.marginTop="10px";
+inpu.style.marginBottom="28px";
 inpu.setAttribute('type','text');
 
 if(control_bar===null || control_bar===undefined){ console.log("Cannot create control bar.") ;}
