@@ -55,44 +55,49 @@ class myAlgo{
         if( check <= 0 ){ return -1;  }
         //CHECK CONNECTED
         let sorted_edges = [];//unsorted and just edges list
-        sorted_edges.push([]);
+      
         for(let i=1;i<=10;++i){
-            for(let neigh of graph[i]){
-                // if( adj_matrix[i-1][neigh-1] === -1 ){//INFINITE
-                //     sorted_edges.push([ i,neigh,-1 ]);
-                // }
-                sorted_edges.push([ i,neigh, adj_matrix[i-1][neigh-1] ]);
-            }
+          for(let neigh of graph[i]){
+            sorted_edges.push([ i,neigh, adj_matrix[i-1][neigh-1] ]);
+          }
         }
-
-        sorted_edges.sort( (ele1, ele2) => { 
-            if( ele1[2] < ele2[2] )
-                { return -1; }
-            else if( ele1[2] > ele2[2] )
-                { return 1; }
-
-            return 0;
+      
+        sorted_edges.sort( (ele1, ele2) => {
+          if( ele1[2] < ele2[2] ) { return -1; }
+          else if( ele1[2] > ele2[2] ) { return 1; }
+      
+          return 0;
         } )
+       
         console.log(sorted_edges);
-
-        let tree_id = new Array(current_count).fill(null);
-        for(let index in tree_id){ tree_id[index] = parseInt(index);  }
-        // console.log(tree_id);
-
-        let picked_tree = sorted_edges[0][0], cost = 0;
-
+      
+        let tree_id = new Array(current_count).fill(-1);
+        for(let index in tree_id){ tree_id[index] = parseInt(index,10);  }
+        
+        console.log(tree_id);
+      
+        let cost = 0, action = [];
+      
         for(let edge of sorted_edges){
-            if(tree_id[edge[1]] !== picked_tree){
-                tree_id[edge[0]] = picked_tree;
-                tree_id[edge[1]] = picked_tree;
-
-                cost += edge[2];
+            if(tree_id[edge[1]] !== tree_id[edge[0]]) {
+              cost += edge[2];
+              action.push(edge);
+              
+              let old_tree_id = tree_id[edge[0]],
+                      new_tree_id = tree_id[edge[1]];
+      
+              for(let i=0;i<current_count;++i) {
+                  if(tree_id[i] === old_tree_id) { tree_id[i] = new_tree_id; }
+              }
+            } else{
+                edge[2] = -1;
+                action.push(edge);
             }
-            else{ edge[2] = -1;  }
-        }
-
-        this.actions = sorted_edges;
-
+          }
+          
+        // console.log("Actions:  ",actions);
+        this.actions = action;
+      
         return cost;
     }
     dijkstra(count,starting_node,end_node){

@@ -41,7 +41,7 @@ async function waiting_kruskal(actions,res){
     console.log(actions);
     let len=actions.length;
     console.log(len);
-    for(let i=1;i<len;++i){
+    for(let i=0;i<len;++i){
         await sleep(1200);
         if(actions[i][2]==-1){
             set_txt_out( txt_out, "Detected cycle, edge ignored." );
