@@ -3,7 +3,7 @@ A static website that may help in learning Graph Algorithm.
 <br>
 
 <details>
-<summary>Currently, there are 4 stuffs to play with:</summary>
+<summary>Currently, there are 5 stuffs to play with:</summary>
 <br>
 <li>Depth-first search.</li>
 <li>Breadth-first search.</li>
